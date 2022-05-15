@@ -22,7 +22,7 @@
       "key": "NodeJS",
       "value": "nodejs",
       "template": "typescript-node",
-      "repo": "{package}_npm"
+      "repo": "{package}_js"
     }
   ]
 }
