@@ -95,12 +95,21 @@ def main():
         if not generate_only:
             run_command("git", "clone", repo_url)
 
-        run_command(OPEN_API_GEN, "generate", "-i", api_spec, "-g", template, "-t", f"templates/{sdk}",
-                    "--git-user-id", org_name,
-                    "--git-repo-id", repo_name,
-                    "--package-name", repo_name,
-                    "-c", f"configs/{sdk}/config.yml",
-                    "-o", repo_name)
+        args = [OPEN_API_GEN,
+                "generate", "-i", api_spec,
+                "-g", template,
+                "--git-user-id", org_name,
+                "--git-repo-id", repo_name,
+                "--package-name", repo_name,
+               ]
+        if os.path.exists(f"configs/{sdk}/config.yml"):
+            args += ["-c", f"configs/{sdk}/config.yml"]
+        if os.path.exists(f"templates/{sdk}"):
+            args += ["-t", f"templates/{sdk}"]
+
+        args +=["-o", repo_name]
+
+        run_command(*args)
 
         os.chdir(repo_name)
 
