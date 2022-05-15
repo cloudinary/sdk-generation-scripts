@@ -13,13 +13,13 @@ pipeline{
     stages{
         stage("Clone sdk generation repo"){
             steps{
-                git url: "git@github.com:cloudinary/sdk-generation-scripts", branch: "main"
+                git url: "git@github.com:cloudinary/sdk-generation-scripts", branch: "main", credentialsId: 'cloudinary-bot'
             }
         }
         stage("Clone services YMLs"){
             steps{
                   dir ('service_interfaces') {
-                    git url: "git@github.com:CloudinaryLtd/service_interfaces.git", branch: "master"
+                    git url: "git@github.com:CloudinaryLtd/service_interfaces.git", branch: "master", credentialsId: 'cloudinary-bot'
                   }
             }
         }
