@@ -14,7 +14,7 @@ import sys
 
 import yaml
 
-OPEN_API_GEN = '/opt/homebrew/bin/openapi-generator'
+OPEN_API_GEN = os.getenv('OPEN_API_GEN', 'openapi-generator-cli')
 
 logging.basicConfig(level=logging.INFO)
 
@@ -50,18 +50,18 @@ def main():
     Generates the specified packages based on the environment variables.
     :return: 0 on success and any other status code on error
     """
-    dry_run = parse_bool(os.getenv("DRY_RUN"))
-    generate_only = parse_bool(os.getenv("GENERATE_ONLY"))
+    dry_run = parse_bool(os.getenv("DRY_RUN", "true"))
+    generate_only = parse_bool(os.getenv("GENERATE_ONLY", "true"))
 
     api_spec = os.getenv("YML")
     """The source OpenApi spec YML file."""
 
-    definition_file = os.getenv("DEFINITION_FILE")
+    definition_file = os.getenv("DEFINITION_FILE", "sdk.json")
     """The definition file of the code generation project, contains supported languages with other details."""
-    sdks = os.getenv("SDKS")
+    sdks = os.getenv("SDKS", "")
     """Comma separated list of SDKs to generate."""
 
-    org_name = os.getenv("ORG_NAME")
+    org_name = os.getenv("ORG_NAME", "cloudinary")
     """GitHub repository organization(usually cloudinary). Can be changed for testing."""
 
     sdks = sdks.split(",")
