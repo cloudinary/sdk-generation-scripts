@@ -7,7 +7,7 @@ Adding a new langauge
 
 * Clone this repo
 * Enter repo directory
-* Clone git@github.com:CloudinaryLtd/service_interfaces.git
+* Clone `git@github.com:CloudinaryLtd/service_interfaces.git`
 * Configure environment:
 * Set the following environment variables(you can change the actual values depending on your needs):
   * YML=service_interfaces/media-delivery/schema.yml
