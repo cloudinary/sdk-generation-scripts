@@ -3,7 +3,7 @@
 This repository contains all the scripts, templates and guidelines 
 for the SDK generation of the Cloudinary OpenAPI based services.
 
-Adding a new langauge
+## Adding a new langauge
 
 * Clone this repo
 * Enter repo directory
@@ -14,14 +14,14 @@ Adding a new langauge
   * `OPEN_API_GEN=openapi-generator`
   * `SDKS=nodejs`
 
-Install:
+### Install:
 
 * `pip3 install pyyaml`
 * `brew install openapi-generator`
 Run: `python3 main.py`
 
 
-Customizing and configuring a new SDK
+### Customizing and configuring a new SDK
 
 * Open the resulting generated folder in your IDE (for example media_delivery_java)
 * Get your templates by running `openapi-generator author template -g {put your language here} --library webclient`
