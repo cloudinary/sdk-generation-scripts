@@ -13,7 +13,9 @@ Adding a new langauge
   * `YML=service_interfaces/media-delivery/schema.yml`
   * `OPEN_API_GEN=openapi-generator`
   * `SDKS=nodejs`
+
 Install:
+
 * `pip3 install pyyaml`
 * `brew install openapi-generator`
 Run: `python3 main.py`
