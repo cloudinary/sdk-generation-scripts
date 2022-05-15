@@ -24,7 +24,7 @@ def camel_to_snake(s):
 
 
 def parse_bool(b):
-    return b.lower() in ['true', '1', 't', 'y', 'yes', 'yeah', 'yup', 'certainly', 'uh-huh']
+    return str(b).lower() in ['true', '1', 't', 'y', 'yes', 'yeah', 'yup', 'certainly', 'uh-huh']
 
 
 def exit_with_error(msg):
@@ -51,6 +51,7 @@ def main():
     :return: 0 on success and any other status code on error
     """
     dry_run = parse_bool(os.getenv("DRY_RUN"))
+    generate_only = parse_bool(os.getenv("GENERATE_ONLY"))
 
     api_spec = os.getenv("YML")
     """The source OpenApi spec YML file."""
@@ -91,7 +92,8 @@ def main():
 
         repo_url = f"git@github.com:{org_name}/{repo_name}.git"
 
-        run_command("git", "clone", repo_url)
+        if not generate_only:
+            run_command("git", "clone", repo_url)
 
         run_command(OPEN_API_GEN, "generate", "-i", api_spec, "-g", template, "-t", f"templates/{sdk}",
                     "--git-user-id", org_name,
@@ -101,6 +103,11 @@ def main():
                     "-o", repo_name)
 
         os.chdir(repo_name)
+
+        if generate_only:
+            logging.info("Generate only, no further steps performed.")
+            os.chdir("..")
+            continue
 
         run_command("git", "add", ".")
 
