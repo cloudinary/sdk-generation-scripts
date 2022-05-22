@@ -98,7 +98,8 @@ export class {{classname}} {
     set cloudName(cloudName: string) {
         this._cloudName = cloudName;
         const path = new URL(this._basePath);
-        path.pathname = `/v2/${cloudName}`;
+        const version = path.pathname.split('/').filter(n=>n).find(value => /^v\d+$/);
+        path.pathname = `/${version}/${cloudName}`
         this.basePath = path.toString();
     }
 
