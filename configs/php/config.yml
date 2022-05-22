@@ -1,6 +1,11 @@
 additionalProperties:
+  developerOrganization: Cloudinary
   gitUserId: cloudinary
   infoUrl: https://cloudinary.com
   apiPackage: Cloudinary
   invokerPackage: Cloudinary
   httpUserAgent: CloudinaryPHP
+files:
+  LICENSE.mustache:
+    templateType: SupportingFiles
+    destinationFilename: LICENSE
