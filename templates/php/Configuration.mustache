@@ -342,11 +342,36 @@ class Configuration
     }
 
     /**
-     * @param string $cloudName
+     * Sets the cloud name.
+     *
+     * @param string $cloudName The cloud name to set.
+     *
+     * @return $this
      */
     public function setCloudName($cloudName)
     {
         $this->cloudName = $cloudName;
+        $this->setHostCloudName($cloudName);
+
+        return $this;
+    }
+
+    /**
+     * Sets the cloud name in the host.
+     *
+     * Cloud name comes after the api version in the host (v2/cloud_name).
+     *
+     * The regex searches for the v{number}/{string} part of the host and replaces the last part with the cloud name.
+     *
+     * @param string $cloudName The cloud name to set.
+     *
+     * @return $this
+     */
+    public function setHostCloudName($cloudName)
+    {
+        $this->host = preg_replace('/(\/v\d+)\/(\w+)/', '${1}/' . $cloudName, $this->host);
+
+        return $this;
     }
 
     /**
