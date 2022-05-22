@@ -16,7 +16,7 @@
       "key": "Java",
       "value": "java",
       "template": "java",
-      "repo": "{package}_jar"
+      "repo": "{package}_java"
     },
     {
       "key": "NodeJS",
