@@ -1,0 +1,12 @@
+additionalProperties:
+  npmName: '@cloudinary/media_delivery'
+files:
+  LICENSE.md: {}
+  README.md: {}
+  api_doc.mustache:
+    destinationFilename: .md
+    templateType: APIDocs
+  readme.mustache:
+    destinationFilename: README.md
+    templateType: SupportingFiles
+
