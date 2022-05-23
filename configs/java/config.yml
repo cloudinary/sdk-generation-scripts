@@ -1,6 +1,5 @@
 additionalProperties:
   modelPackage: com.cloudinary.model
-  appVersion: 1.0.0
   invokerPackage: com.cloudinary
   groupId: com.cloudinary
   artifactVersion: 1.0.0
