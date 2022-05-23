@@ -1,0 +1,31 @@
+{
+"name": "{{npmName}}",
+"version": "{{npmVersion}}",
+"description": "NodeJS client for {{npmName}}",
+"main": "./api.js",
+"types": "./api.d.ts",
+"scripts": {
+"start": "npm install && npm run prepare",
+"clean": "rm -Rf node_modules/ *.js",
+"build": "tsc",
+"test": "npm run build && node dist/client.js",
+"prepare": "npm run build && cp package.json ./dist"
+},
+"author": "Cloudinary",
+"license": "MIT",
+"dependencies": {
+"bluebird": "^3.5.0",
+"request": "^2.81.0",
+"@types/bluebird": "3.5.33",
+"@types/request": "*",
+"rewire": "^3.0.2",
+"dotenv": "^16.0.1",
+"@types/node": "8.10.34"
+},
+"devDependencies": {
+"typescript": "^2.4.2"
+}{{#npmRepository}},
+"publishConfig": {
+"registry": "{{npmRepository}}"
+}{{/npmRepository}}
+}
