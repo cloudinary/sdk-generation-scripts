@@ -35,11 +35,21 @@ public class Configuration {
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultApiClient.getAuthentication("basicAuth");
         basicAuth.setUsername((String) config.get("api_key"));
         basicAuth.setPassword((String) config.get("api_secret"));
-        buildCloudinaryUrl((String) config.get("cloud_name"));
+        updateBasePath((String) config.get("cloud_name"));
     }
 
-    static private void buildCloudinaryUrl(String cloudName) {
-        defaultApiClient.setBasePath("https://api-staging.cloudinary.com/v2/" + cloudName);
+    static private void updateBasePath(String cloudName) {
+        StringBuffer sb = new StringBuffer();
+        Pattern p = Pattern.compile("(\\/v\\d+)\\/(\\w+)");
+        Matcher m = p.matcher(defaultApiClient.getBasePath());
+        if (m.find()) {
+            String matchedString = m.group(2);
+            if (matchedString != null) {
+                m.appendTail(sb);
+                String result = sb.toString().replace(matchedString,cloudName);
+                defaultApiClient.setBasePath(result);
+            }
+        }
     }
 
     static protected Map parseConfigUrl(String cloudinaryUrl) {
