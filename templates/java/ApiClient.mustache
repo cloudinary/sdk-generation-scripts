@@ -1769,25 +1769,25 @@ public class ApiClient {
         return "";
     }
 
-        protected Map parseConfigUrl(String cloudinaryUrl) {
-    Map params = new HashMap();
-    URI cloudinaryUri = URI.create(cloudinaryUrl);
-    if (cloudinaryUri.getScheme() == null || !cloudinaryUri.getScheme().equalsIgnoreCase("cloudinary")) {
-        throw new IllegalArgumentException("Invalid CLOUDINARY_URL scheme. Expecting to start with 'cloudinary://'");
-    }
-    params.put("cloud_name", cloudinaryUri.getHost());
-    if (cloudinaryUri.getUserInfo() != null) {
-        String[] creds = cloudinaryUri.getUserInfo().split(":");
-        params.put("api_key", creds[0]);
-        if (creds.length > 1) {
-            params.put("api_secret", creds[1]);
+    protected Map parseConfigUrl(String cloudinaryUrl) {
+        Map params = new HashMap();
+        URI cloudinaryUri = URI.create(cloudinaryUrl);
+        if (cloudinaryUri.getScheme() == null || !cloudinaryUri.getScheme().equalsIgnoreCase("cloudinary")) {
+            throw new IllegalArgumentException("Invalid CLOUDINARY_URL scheme. Expecting to start with 'cloudinary://'");
         }
+        params.put("cloud_name", cloudinaryUri.getHost());
+        if (cloudinaryUri.getUserInfo() != null) {
+            String[] creds = cloudinaryUri.getUserInfo().split(":");
+            params.put("api_key", creds[0]);
+            if (creds.length > 1) {
+                params.put("api_secret", creds[1]);
+            }
+        }
+        params.put("private_cdn", !StringUtils.isEmpty(cloudinaryUri.getPath()));
+        params.put("secure_distribution", cloudinaryUri.getPath());
+        updateMapfromURI(params, cloudinaryUri);
+        return params;
     }
-    params.put("private_cdn", !StringUtils.isEmpty(cloudinaryUri.getPath()));
-    params.put("secure_distribution", cloudinaryUri.getPath());
-    updateMapfromURI(params, cloudinaryUri);
-    return params;
-}
 
     private void updateMapfromURI(Map params, URI cloudinaryUri) {
         if (cloudinaryUri.getQuery() != null) {
