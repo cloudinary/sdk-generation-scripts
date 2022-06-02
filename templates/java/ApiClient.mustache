@@ -490,11 +490,13 @@ public class ApiClient {
         if (cloudinaryUrl == null) {
             cloudinaryUrl = System.getProperty("CLOUDINARY_URL", System.getenv("CLOUDINARY_URL"));
         }
-        Map config = parseConfigUrl(cloudinaryUrl);
-        HttpBasicAuth basicAuth = (HttpBasicAuth)  getAuthentication("basicAuth");
-        basicAuth.setUsername((String) config.get("api_key"));
-        basicAuth.setPassword((String) config.get("api_secret"));
-        updateBasePath((String) config.get("cloud_name"));
+        if (cloudinaryUrl != null) {
+            Map config = parseConfigUrl(cloudinaryUrl);
+            HttpBasicAuth basicAuth = (HttpBasicAuth)  getAuthentication("basicAuth");
+            basicAuth.setUsername((String) config.get("api_key"));
+            basicAuth.setPassword((String) config.get("api_secret"));
+            updateBasePath((String) config.get("cloud_name"));
+        }
     }
 
     /**
