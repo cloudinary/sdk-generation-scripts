@@ -14,7 +14,7 @@ import sys
 
 import yaml
 
-OPEN_API_GEN = os.getenv('OPEN_API_GEN', 'openapi-generator-cli')
+OPEN_API_GEN = os.getenv('OPEN_API_GEN', 'openapi-generator.jar')
 
 logging.basicConfig(level=logging.INFO)
 
@@ -64,6 +64,9 @@ def main():
     org_name = os.getenv("ORG_NAME", "cloudinary")
     """GitHub repository organization(usually cloudinary). Can be changed for testing."""
 
+    if not os.path.exists(OPEN_API_GEN):
+        run_command("bash", "get_open_api_gen.sh")
+
     sdks = sdks.split(",")
 
     if not sdks:
@@ -95,7 +98,7 @@ def main():
         if not generate_only:
             run_command("git", "clone", repo_url)
 
-        args = [OPEN_API_GEN,
+        args = ["java", "-jar", OPEN_API_GEN,
                 "generate", "-i", api_spec,
                 "-g", template,
                 "--git-user-id", org_name,
