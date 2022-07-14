@@ -4,7 +4,7 @@
       "key": "PHP",
       "value": "php",
       "template": "php",
-      "repo": "{package}_php"
+      "repo": "{package}-php"
     },
     {
       "key": "Python",
@@ -16,13 +16,13 @@
       "key": "Java",
       "value": "java",
       "template": "java",
-      "repo": "{package}_java"
+      "repo": "{package}-java"
     },
     {
       "key": "NodeJS",
       "value": "nodejs",
       "template": "typescript-node",
-      "repo": "{package}_js"
+      "repo": "{package}-js"
     }
   ]
 }

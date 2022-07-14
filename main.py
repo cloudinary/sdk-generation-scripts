@@ -79,7 +79,7 @@ def main():
     with open(api_spec, "r") as f:
         yml = yaml.safe_load(f)
 
-    package = camel_to_snake(yml["info"]["title"])
+    package = yml["info"]["x-sdk-package-name"]
     version = yml["info"]["version"]
 
     definitions = dict([(d.pop('value'), d) for d in spec["SDKS"]])
