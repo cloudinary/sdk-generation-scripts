@@ -103,7 +103,7 @@ def main():
                 "-g", template,
                 "--git-user-id", org_name,
                 "--git-repo-id", repo_name,
-                "--package-name", repo_name,
+                "--package-name", package,
                ]
         if os.path.exists(f"configs/{sdk}/config.yml"):
             args += ["-c", f"configs/{sdk}/config.yml"]
