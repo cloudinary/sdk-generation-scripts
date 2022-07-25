@@ -1,10 +1,10 @@
 additionalProperties:
-  modelPackage: com.cloudinary.model
-  invokerPackage: com.cloudinary
-  groupId: com.cloudinary
+  modelPackage: com.cloudinary.mediaediting.model
+  invokerPackage: com.cloudinary.mediaediting
+  groupId: com.cloudinary.mediaediting
   artifactVersion: 1.0.0
   artifactId: media-delivery-java
   gitUserId: cloudinary
   infoUrl: https://cloudinary.com
-  apiPackage: com.cloudinary.api
+  apiPackage: com.cloudinary.mediaediting.api
   httpUserAgent: CloudinaryJava
