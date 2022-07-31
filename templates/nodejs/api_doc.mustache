@@ -23,17 +23,15 @@ Method | HTTP request | Description
 ```typescript
 {{#hasParams}}
 {{#allParams}}
-import { {{{classname}}}, IConfig, ICloudinaryUrlConfig, {{{dataType}}} } from '@cloudinary/media_delivery';
+import { {{{classname}}}, ICloudinaryUrlConfig, {{{dataType}}} } from '{{{npmName}}}';
 
-Configuration can be passed in:
-const configuration: IConfig = {userName: '<user_name>', password: '<password>', basePath: '<base_path>'}
-or
-const configuration: ICloudinaryUrlConfig = {cloudinaryUrl: '<cloudinary_url>', basePath: '<base_path>'}
+// Configuration can be passed in:
+const configuration: ICloudinaryUrlConfig = {cloudinaryUrl: '<cloudinary_url>'}
 
 const apiInstance = new {{classname}}(configuration);
 
-Or by default an environment variable can be used:
-const apiInstance = new {{classname}}();
+// Or by default an environment variable can be used:
+// const apiInstance = new {{classname}}();
 
 // {{{dataType}}}{{#description}} | {{{description}}}{{/description}}{{^required}} (optional){{/required}}
 let body:{{{dataType}}} = {{{example}}};
