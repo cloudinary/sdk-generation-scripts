@@ -242,6 +242,7 @@ export class {{classname}} {
             useQuerystring: this._useQuerystring,
             // json - sets body to JSON representation of value and adds Content-type: application/json header.
             // Additionally, parses the response body as JSON.
+            // We always set json to true because we always want to send json
             json: true,
 {{#isResponseFile}}
             // encoding to be used on setEncoding of response data. If null, the body is returned as a Buffer.
