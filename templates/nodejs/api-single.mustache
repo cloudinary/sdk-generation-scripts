@@ -240,10 +240,12 @@ export class {{classname}} {
             headers: localVarHeaderParams,
             uri: localVarPath,
             useQuerystring: this._useQuerystring,
-{{^isResponseFile}}
             json: true,
-{{/isResponseFile}}
 {{#isResponseFile}}
+            // encoding to be used on setEncoding of response data. If null, the body is returned as a Buffer.
+            // Anything else (including the default value of undefined) will be passed as the
+            // encoding parameter to toString() (meaning this is effectively utf8 by default).
+            // (Note: if you expect binary data, you should set encoding: null.)
             encoding: null,
 {{/isResponseFile}}
 {{#bodyParam}}

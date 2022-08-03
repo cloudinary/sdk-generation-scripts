@@ -1,5 +1,5 @@
 additionalProperties:
-  npmName: '@cloudinary/media_delivery'
+  npmName: '@cloudinary/media-delivery-api'
 files:
   LICENSE.md: {}
   README.md: {}
