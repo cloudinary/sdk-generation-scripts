@@ -35,7 +35,7 @@ public class Example {
     public static void main(String[] args) {
         ApiClient apiClient = Configuration.getDefaultApiClient();
         // If you don't supply cloudinary url through apiClient.setCloudinaryUrl("Cloudinary url"> it'll be taken from environment variable
-        {{{classname}}} apiInstance = new {{{classname}}}(defaultClient);
+        {{{classname}}} apiInstance = new {{{classname}}}(apiClient);
         {{#allParams}}
         {{{dataType}}} {{{paramName}}} = {{{example}}}; // {{{dataType}}} | {{{description}}}
         {{/allParams}}

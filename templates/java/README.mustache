@@ -46,15 +46,11 @@ import {{{package}}}.{{{classname}}};
 
 ...
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-ClientConfig clientConfig = defaultClient.getClientConfig();
-clientConfig.connectorProvider(new ApacheConnectorProvider());
-clientConfig.property(ClientProperties.PROXY_URI, "http://proxy_url_here");
-clientConfig.property(ClientProperties.PROXY_USERNAME, "proxy_username");
-clientConfig.property(ClientProperties.PROXY_PASSWORD, "proxy_password");
-defaultClient.setClientConfig(clientConfig);
+ApiClient apiClient = Configuration.getDefaultApiClient();
+// If you don't supply cloudinary url through apiClient.setCloudinaryUrl("Cloudinary url"> it'll be taken from environment variable
+apiClient.setCloudinaryUrl("cloudinary://API_KEY:API_SECRET@CLOUD_NAME");
 
-{{{classname}}} apiInstance = new {{{classname}}}(defaultClient);
+{{{classname}}} apiInstance = new {{{classname}}}(apiClient);
 {{/-first}}{{/operation}}{{/operations}}{{/-first}}{{/apis}}{{/apiInfo}}
 ```
 
