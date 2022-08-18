@@ -1,5 +1,6 @@
 additionalProperties:
   npmName: '@cloudinary/media-delivery-api'
+  httpUserAgent: CloudinaryMENodeJS
 files:
   LICENSE.md: {}
   README.md: {}

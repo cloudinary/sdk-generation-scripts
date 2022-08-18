@@ -4,7 +4,7 @@ additionalProperties:
   infoUrl: https://cloudinary.com
   apiPackage: Cloudinary
   invokerPackage: Cloudinary
-  httpUserAgent: CloudinaryPython
+  httpUserAgent: CloudinaryMEPython
 files:
   LICENSE.mustache:
     templateType: SupportingFiles
