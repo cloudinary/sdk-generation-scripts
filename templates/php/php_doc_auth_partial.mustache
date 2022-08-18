@@ -1,14 +1,10 @@
 {{#hasAuthMethods}}{{#authMethods}}
 {{#isBasic}}
 {{#isBasicBasic}}
-// Configure HTTP basic authorization: {{{name}}}
+// Configure Cloudinary URL: {{{name}}}
 $config = {{{invokerPackage}}}\Configuration::getDefaultConfiguration()
               ->setCloudinaryUrl('cloudinary://key:secret@cloud_name');
 {{/isBasicBasic}}
-{{#isBasicBearer}}
-// Configure Bearer{{#bearerFormat}} ({{{.}}}){{/bearerFormat}} authorization: {{{name}}}
-// $config = {{{invokerPackage}}}\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-{{/isBasicBearer}}
 {{/isBasic}}
 {{#isApiKey}}
 // Configure API key authorization: {{{name}}}

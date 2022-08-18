@@ -2,9 +2,9 @@ additionalProperties:
   developerOrganization: Cloudinary
   gitUserId: cloudinary
   infoUrl: https://cloudinary.com
-  apiPackage: Cloudinary
-  invokerPackage: Cloudinary
   httpUserAgent: CloudinaryPHP
+  apiPackage: Api
+  invokerPackage: Cloudinary\MediaDelivery
 files:
   LICENSE.mustache:
     templateType: SupportingFiles
