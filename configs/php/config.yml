@@ -5,6 +5,7 @@ additionalProperties:
   apiPackage: Api
   invokerPackage: Cloudinary\MediaDelivery
   httpUserAgent: CloudinaryMEPHP
+  artifactVersion: 0.1.2-beta
 files:
   LICENSE.mustache:
     templateType: SupportingFiles
