@@ -88,6 +88,9 @@ export class {{classname}} {
             this.basePath = basePath;
             this.cloudinaryUrl = cloudinaryUrl;
         }
+
+        // set userAgent
+        this._defaultHeaders['User-Agent'] = USER_AGENT;
     }
 
     set useQuerystring(value: boolean) {
@@ -127,9 +130,6 @@ export class {{classname}} {
 
     set defaultHeaders(defaultHeaders: any) {
         this._defaultHeaders = defaultHeaders;
-
-        // set userAgent
-        this._defaultHeaders['User-Agent'] = USER_AGENT;
     }
 
     get defaultHeaders() {
