@@ -36,8 +36,7 @@ export enum {{classname}}ApiKeys {
 {{/authMethods}}
 }
 
-const USER_AGENT = `{{httpUserAgent}}/${process.env.npm_package_version
-} (Node ${process.versions.node})`;
+const USER_AGENT = `{{httpUserAgent}}/{{npmVersion}} (Node ${process.versions.node})`;
 
 export class {{classname}} {
     protected _basePath = defaultBasePath;
