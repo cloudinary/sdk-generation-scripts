@@ -36,6 +36,8 @@ export enum {{classname}}ApiKeys {
 {{/authMethods}}
 }
 
+const USER_AGENT = `{{httpUserAgent}}/{{npmVersion}} (Node ${process.versions.node})`;
+
 export class {{classname}} {
     protected _basePath = defaultBasePath;
     protected _defaultHeaders : any = {};
@@ -85,6 +87,9 @@ export class {{classname}} {
             this.basePath = basePath;
             this.cloudinaryUrl = cloudinaryUrl;
         }
+
+        // set userAgent
+        this._defaultHeaders['User-Agent'] = USER_AGENT;
     }
 
     set useQuerystring(value: boolean) {
